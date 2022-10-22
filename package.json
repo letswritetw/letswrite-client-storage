@@ -1,0 +1,8 @@
+{
+  "name": "letswrite-client-storage",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/letswritetw/letswrite-client-storage.git",
+  "author": "Let's Write <letswritetw@gmail.com>",
+  "license": "MIT"
+}

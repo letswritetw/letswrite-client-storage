@@ -1,0 +1,106 @@
+- var link = 'client-storage'
+- var title = '瀏覽器上的儲存空間：Cookie、Session Storage、Local Storage、IndexedDB'
+- var description = '瀏覽器上的儲存空間：Cookie、Session Storage、Local Storage、IndexedDB'
+
+<!DOCTYPE html>
+html(lang="zh-Hant")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title #{title} - August - Let's Write
+
+    link(rel="canonical", href=`https://letswritetw.github.io/letswrite-${link}/`)
+    meta(property="og:url", content=`https://letswritetw.github.io/letswrite-${link}/`)
+
+    meta(property="fb:app_id", content="911000986339138")
+    meta(property="og:type", content="website")
+
+    meta(property="og:site_name", content="Let's Write")
+    meta(property="og:title", content=`${title} - Augustus - Let's Write`)
+    meta(itemprop="name", content=`${title} - Augustus - Let's Write`)
+
+    meta(name="description", content=description)
+    meta(property="og:description", content=description)
+    meta(itemprop="description", content=description)
+
+    meta(itemprop="image", content=`https://letswritetw.github.io/letswrite-${link}/fb.jpg`)
+    meta(property="og:image", content=`https://letswritetw.github.io/letswrite-${link}/fb.jpg`)
+    meta(property="og:image:width", content="1200")
+    meta(property="og:image:height", content="630")
+    meta(property="og:image:alt", content=title)
+
+    link(rel="shortcut icon", href="https://letswritetw.github.io/letswritetw/dist/img/logo_512.png")
+
+    //- css
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.min.css", media="screen")
+    script(src="https://cdn.tailwindcss.com")
+    link(rel="stylesheet", href="dist/style.min.css", media="screen")
+    script.
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              main: '#42A6F7',
+              mainHover: '#167FFF'
+            }
+          }
+        }
+      }
+
+    // Google Tag Manager
+    script.
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PGQ9WQT');
+  body
+
+    // Google Tag Manager (noscript)
+    noscript
+      iframe(src="https://www.googletagmanager.com/ns.html?id=GTM-PGQ9WQT", height="0", width="0", style="display:none;visibility:hidden")
+
+    .mx-auto.max-w-5xl
+    
+      .p-8
+        h1.mb-4.text-center.font-bold.text-3xl 瀏覽器上的儲存空間<br/>Cookie、Session Storage、Local Storage、IndexedDB
+      
+      section.grid.gap-6.mb-8(class="md:grid-cols-3 px-4 sm:px-10 md:px-0")
+
+        //- Cookie
+        .bg-gray-800.shadow-md.border.border-gray-500.rounded-lg
+          a(href="cookie.html")
+            img.rounded-t-lg(src="dist/fb-cookie.jpg", alt="瀏覽器上的儲存空間：Cookie")
+          .p-5
+            a(href="#")
+              h2.mb-2.font-bold.text-2xl Cookie
+            ul.mb-3.pl-4.list-disc(class="text-white/80")
+              li 限制數量：180 個（Chrome）
+              li 限制大小：4KB
+              li 限制期限：可設定，未設定則頁籤關閉就會被刪除
+            .text-right
+              a.mr-6.text-main.underline(class="hover:text-mainHover hover:no-underline", href="https://www.letswrite.tw/client-storage-cookie/") 筆記文
+              a.bg-main.font-medium.rounded-lg.text-sm.px-3.py-2.text-center.inline-flex.items-center(class="hover:bg-mainHover hover:no-underline", href="cookie.html") Demo
+        
+        //- Session + Local Storage
+        .bg-gray-800.shadow-md.border.border-gray-500.rounded-lg
+          a(href="#")
+            img.rounded-t-lg(src="https://picsum.photos/id/0/1200/630" alt="開發中")
+          .p-5
+            a(href="#")
+              h2.mb-2.font-bold.text-2xl Session + Local Storage
+            p.mb-3(class="text-white/80") 開發中
+        
+        //- Storage、IndexedDB
+        .bg-gray-800.shadow-md.border.border-gray-500.rounded-lg
+          a(href="#")
+            img.rounded-t-lg(src="https://picsum.photos/id/1/1200/630" alt="開發中")
+          .p-5
+            a(href="開發中")
+              h2.mb-2.font-bold.text-2xl IndexedDB
+            p.mb-3(class="text-white/80") 開發中
+
+      hr.border-t.border-grey-300
+
+    script(src="dist/main.min.js")

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>瀏覽器上的儲存空間：Cookie - August - Let's Write</title>
+    <link rel="canonical" href="https://www.letswrite.tw/client-storage-cookie/"/>
+    <meta property="og:url" content="https://www.letswrite.tw/client-storage-cookie/"/>
+    <meta property="fb:app_id" content="911000986339138"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="Let's Write"/>
+    <meta property="og:title" content="瀏覽器上的儲存空間：Cookie - Augustus - Let's Write"/>
+    <meta itemprop="name" content="瀏覽器上的儲存空間：Cookie - Augustus - Let's Write"/>
+    <meta name="description" content="瀏覽器上的儲存空間：Cookie"/>
+    <meta property="og:description" content="瀏覽器上的儲存空間：Cookie"/>
+    <meta itemprop="description" content="瀏覽器上的儲存空間：Cookie"/>
+    <meta itemprop="image" content="https://letswritetw.github.io/letswrite-client-storage-cookie/fb.jpg"/>
+    <meta property="og:image" content="https://letswritetw.github.io/letswrite-client-storage-cookie/fb.jpg"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:image:alt" content="瀏覽器上的儲存空間：Cookie"/>
+    <link rel="shortcut icon" href="https://letswritetw.github.io/letswritetw/dist/img/logo_512.png"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.min.css" media="screen"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="dist/style.min.css" media="screen"/>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              main: '#42A6F7',
+              mainHover: '#167FFF'
+            }
+          }
+        }
+      }
+      
+    </script>
+    <!-- Google Tag Manager-->
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PGQ9WQT');
+    </script>
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript)-->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGQ9WQT" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <div class="mx-auto max-w-5xl">
+      <div class="p-8">
+        <h1 class="mb-4 text-center font-bold text-3xl">瀏覽器上的儲存空間：Cookie</h1>
+        <p class="text-center">筆記文：<a class="text-main hover:text-mainHover" href="https://www.letswrite.tw/client-storage-cookie/">Let's Write</a></p>
+      </div>
+      <!-- 限制說明-->
+      <section class="mx-auto mb-8 max-w-2xl">
+        <h2 class="mb-2 font-bold text-xl">限制說明</h2>
+        <ul class="mb-3 pl-4 list-disc">
+          <li>限制數量：180 個（Chrome）</li>
+          <li>限制大小：4KB</li>
+          <li>限制期限：可設定，未設定則頁籤關閉就會被刪除</li>
+        </ul>
+      </section>
+      <!-- 推薦套件-->
+      <section class="mx-auto mb-8 max-w-2xl">
+        <h2 class="mb-2 font-bold text-xl">推薦套件 -  JavaScript Cookie</h2>
+        <p>官方文件：<a class="text-main" href="https://github.com/js-cookie/js-cookie" target="_blank">JavaScript Cookie</a></p>
+      </section>
+      <!-- 示範-->
+      <section class="mx-auto mb-8 max-w-2xl">
+        <h2 class="mb-2 font-bold text-xl">示範</h2>
+        <p>點選下列按鈕，會存值進 Cookie，或從 Cookie 裡抓出值。</p>
+        <p>Cookie 會保留一天。</p>
+        <div class="mb-2 pt-4 pb-2 sm:flex">
+          <div class="mb-2 sm:mb-0 sm:w-3/4">
+            <input class="px-4 py-2 w-full" id="set-cookie-input" type="text" placeholder="請輸入要存在 Cookie 裡的文字"/>
+          </div>
+          <div class="sm:w-1/4 sm:pl-2">
+            <button class="px-4 py-2 w-full bg-main hover:bg-mainHover" id="set-cookie" type="button">儲存至 Cookie</button>
+          </div>
+        </div>
+        <div class="mb-2 pt-4 pb-2">
+          <div class="items-center sm:flex mb-2">
+            <button class="px-4 py-2 bg-main mb-2 sm:mb-0 hover:bg-mainHover" id="get-cookie" type="button">秀出存在 Cookie 裡的文字</button>
+            <p class="sm:ml-4">可以頁面重整後再按</p>
+          </div>
+          <div>
+            <input class="px-4 py-2 w-full" id="get-cookie-input" type="text" disabled="disabled"/>
+          </div>
+        </div>
+        <div class="mb-2 pt-4 pb-2">
+          <button class="px-4 py-2 bg-main mb-2 sm:mb-0 hover:bg-mainHover" id="remove-cookie" type="button">刪除 Cookie</button>
+        </div>
+      </section>
+      <hr class="border-t border-grey-300"/>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+      
+        // 存
+        const btnSetCookie = document.getElementById('set-cookie');
+        const inputSetCookie = document.getElementById('set-cookie-input');
+        btnSetCookie.addEventListener('click', e => {
+          e.preventDefault();
+          const text = inputSetCookie.value;
+          if(text.length > 0) {
+            Cookies.set('letswrite-cookie', text, { expires: 1 });
+          } else {
+            window.alert('請填寫要存在 Cookie 裡的文字再按儲存喔！')
+          }
+        })
+      
+        // 取
+        const btnGetCookie = document.getElementById('get-cookie');
+        const inputGetCookie = document.getElementById('get-cookie-input');
+        btnGetCookie.addEventListener('click', e => {
+          e.preventDefault();
+          const text = Cookies.get('letswrite-cookie') || false;
+          if(text) {
+            inputGetCookie.value = text;
+          } else {
+            inputGetCookie.value = '你一開始就沒有存 Cookie 啊，別玩了'
+          }
+        });
+      
+        // 刪
+        const btnRemoveCookie = document.getElementById('remove-cookie');
+        btnRemoveCookie.addEventListener('click', e => {
+          e.preventDefault();
+          const text = Cookies.get('letswrite-cookie') || false;
+          if(text) {
+            Cookies.remove('letswrite-cookie');
+          } else {
+            window.alert('你沒有存 Cookie 啊，要刪什麼？')
+          }
+        });
+      
+        
+      })
+    </script>
+  </body>
+</html>
