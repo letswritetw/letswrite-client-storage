@@ -1,4 +1,4 @@
-# 瀏覽器上的儲存空間：Cookie、Session Storage、Local Storage、IndexedDB
+# 瀏覽器上的儲存空間：Cookie、sessionStorage、localStorage、IndexedDB
 
 Demo：[demo](https://letswritetw.github.io/letswrite-client-storage/)
 
