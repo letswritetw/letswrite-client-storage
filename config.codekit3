@@ -48,6 +48,19 @@
       "q" : 100,
       "rq" : 75
     },
+    "\/dist\/fb-storage.jpg" : {
+      "ft" : 16384,
+      "iS" : 348547,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/dist\/fb-storage.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
     "\/dist\/main.min.js" : {
       "bF" : 0,
       "ft" : 64,
@@ -109,6 +122,24 @@
       "oA" : 0,
       "oAP" : "\/LICENSE",
       "oF" : 0
+    },
+    "\/localstorage.html" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/localstorage.html",
+      "oF" : 0
+    },
+    "\/localstorage.pug" : {
+      "cB" : 0,
+      "cOD" : 1,
+      "ft" : 512,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/localstorage.html",
+      "oF" : 0,
+      "oS" : 1
     },
     "\/package.json" : {
       "ft" : 524288,
