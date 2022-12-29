@@ -99,14 +99,20 @@ html(lang="zh-Hant")
               a.mr-6.text-main.underline(class="hover:text-mainHover hover:no-underline", href="https://www.letswrite.tw/client-storage-local/") 筆記文
               a.bg-main.font-medium.rounded-lg.text-sm.px-3.py-2.text-center.inline-flex.items-center(class="hover:bg-mainHover hover:no-underline", href="localstorage.html") Demo
         
-        //- Storage、IndexedDB
+        //- IndexedDB
         .bg-gray-800.shadow-md.border.border-gray-500.rounded-lg
           a(href="#")
-            img.rounded-t-lg(src="https://picsum.photos/id/1/1200/630" alt="開發中")
+            img.rounded-t-lg(src="dist/fb-idb.jpg" alt="瀏覽器上的儲存空間：IndexedDB")
           .p-5
-            a(href="開發中")
+            a(href="#")
               h2.mb-2.font-bold.text-2xl IndexedDB
-            p.mb-3(class="text-white/80") 開發中
+            ul.mb-3.pl-4.list-disc(class="text-white/80")
+              li 限制大小：約 250 MB (可檢測) 
+              li 限制期限：要主動刪除或程式刪除
+              li 資料格式：除了純值，也可存 Array、Object、Date、Blob 等
+            .text-right
+              a.mr-6.text-main.underline(class="hover:text-mainHover hover:no-underline", href="https://www.letswrite.tw/client-storage-idb/") 筆記文
+              a.bg-main.font-medium.rounded-lg.text-sm.px-3.py-2.text-center.inline-flex.items-center(class="hover:bg-mainHover hover:no-underline", href="idb.html") Demo
 
       hr.border-t.border-grey-300
 

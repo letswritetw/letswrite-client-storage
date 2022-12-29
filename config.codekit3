@@ -48,6 +48,19 @@
       "q" : 100,
       "rq" : 75
     },
+    "\/dist\/fb-idb.jpg" : {
+      "ft" : 16384,
+      "iS" : 272197,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/dist\/fb-idb.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
     "\/dist\/fb-storage.jpg" : {
       "ft" : 16384,
       "iS" : 348547,
@@ -96,6 +109,24 @@
       "ou" : "lpckwebp-none",
       "q" : 100,
       "rq" : 75
+    },
+    "\/idb.html" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/idb.html",
+      "oF" : 0
+    },
+    "\/idb.pug" : {
+      "cB" : 0,
+      "cOD" : 1,
+      "ft" : 512,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/idb.html",
+      "oF" : 0,
+      "oS" : 0
     },
     "\/index.html" : {
       "cB" : 0,

@@ -1,6 +1,6 @@
-- var link = 'client-storage-cookie'
-- var title = '瀏覽器上的儲存空間：Cookie'
-- var description = '瀏覽器上的儲存空間：Cookie'
+- var link = 'client-storage-idb'
+- var title = '瀏覽器上的儲存空間：IndexedDB'
+- var description = '瀏覽器上的儲存空間：IndexedDB'
 
 <!DOCTYPE html>
 html(lang="zh-Hant")
@@ -24,8 +24,8 @@ html(lang="zh-Hant")
     meta(property="og:description", content=description)
     meta(itemprop="description", content=description)
 
-    meta(itemprop="image", content="https://letswritetw.github.io/letswrite-client-storage/dist/fb-cookie.jpg")
-    meta(property="og:image", content="https://letswritetw.github.io/letswrite-client-storage/dist/fb-cookie.jpg")
+    meta(itemprop="image", content="https://letswritetw.github.io/letswrite-client-storage/dist/fb-idb.jpg")
+    meta(property="og:image", content="https://letswritetw.github.io/letswrite-client-storage/dist/fb-idb.jpg")
     meta(property="og:image:width", content="1200")
     meta(property="og:image:height", content="630")
     meta(property="og:image:alt", content=title)
@@ -64,93 +64,87 @@ html(lang="zh-Hant")
     .mx-auto.max-w-5xl
     
       .p-8
-        h1.mb-4.text-center.font-bold.text-3xl 瀏覽器上的儲存空間：Cookie
+        h1.mb-4.text-center.font-bold.text-3xl 瀏覽器上的儲存空間：IndexedDB
         p.text-center 筆記文：
-          a.text-main(class="hover:text-mainHover", href="https://www.letswrite.tw/client-storage-cookie/") Let's Write
+          a.text-main(class="hover:text-mainHover", href="https://www.letswrite.tw/client-storage-idb/") Let's Write
 
       // 限制說明
       section.mx-auto.mb-8.max-w-2xl
 
         h2.mb-2.font-bold.text-xl 限制說明
         ul.mb-3.pl-4.list-disc
-          li 限制數量：180 個（Chrome）
-          li 限制大小：4KB
-          li 限制期限：可設定，未設定則頁籤關閉就會被刪除
-          li 資料格式：僅接受字串
-
+          li 限制大小：約 250 MB (可檢測) 
+          li 限制期限：要主動刪除或程式刪除
+          li 資料格式：除了純值，也可存 Array、Object、Date、Blob 等
+      
       // 推薦套件
       section.mx-auto.mb-8.max-w-2xl
 
-        h2.mb-2.font-bold.text-xl 推薦套件 - JavaScript Cookie
+        h2.mb-2.font-bold.text-xl 推薦套件 - IDB-Keyval
         p 官方文件：
-          a.text-main(href="https://github.com/js-cookie/js-cookie", target="_blank") JavaScript Cookie
+          a.text-main(href="https://github.com/jakearchibald/idb-keyval", target="_blank") IDB-Keyval
       
       // 示範
       section.mx-auto.mb-8.max-w-2xl
 
         h2.mb-2.font-bold.text-xl 示範
-        p 點選下列按鈕，會存值進 Cookie，或從 Cookie 裡抓出值。
-        p Cookie 會保留一天。
+        p 本頁的 Demo 以 IndexedDB 為主，因為字太長，簡稱 IDB。
+        p 點選下列按鈕，會存值進 IndexedDB，或從 IndexedDB 裡抓出值。
+        p 不點「清除」按鈕，存的值會一直存在。
         
         .mb-2.pt-4.pb-2(class="sm:flex")
           div(class="mb-2 sm:mb-0 sm:w-3/4")
-            input#set-cookie-input.px-4.py-2.w-full(type="text", placeholder="請輸入要存在 Cookie 裡的文字")
+            input#set-idb-input.px-4.py-2.w-full(type="text", placeholder="請輸入要存在 IndexedDB 裡的文字")
           div(class="sm:w-1/4 sm:pl-2")
-            button#set-cookie.px-4.py-2.w-full.bg-main(type="button", class="hover:bg-mainHover") 儲存至 Cookie
+            button#set-idb.px-4.py-2.w-full.bg-main(type="button", class="hover:bg-mainHover") 儲存至 IDB
         
         .mb-2.pt-4.pb-2
           .items-center(class="sm:flex mb-2")
-            button#get-cookie.px-4.py-2.bg-main(type="button", class="mb-2 sm:mb-0 hover:bg-mainHover") 秀出存在 Cookie 裡的文字
+            button#get-idb.px-4.py-2.bg-main(type="button", class="mb-2 sm:mb-0 hover:bg-mainHover") 秀出存在 IDB 裡的文字
             p(class="sm:ml-4") 可以頁面重整後再按
           div
-            input#get-cookie-input.px-4.py-2.w-full(type="text", disabled)
+            input#get-idb-input.px-4.py-2.w-full(type="text", disabled)
         
         .mb-2.pt-4.pb-2
-          button#remove-cookie.px-4.py-2.bg-main(type="button", class="mb-2 sm:mb-0 hover:bg-mainHover") 刪除 Cookie
+          button#remove-idb.px-4.py-2.bg-main(type="button", class="mb-2 sm:mb-0 hover:bg-mainHover") 清除 IDB
       
       hr.border-t.border-grey-300
 
-    script(src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js")
-    script.
+    script(type="module").
+      import { get, set, clear } from 'https://cdn.jsdelivr.net/npm/idb-keyval@6/dist/index.min.js';
       document.addEventListener('DOMContentLoaded', () => {
 
         // 存
-        const btnSetCookie = document.getElementById('set-cookie');
-        const inputSetCookie = document.getElementById('set-cookie-input');
-        btnSetCookie.addEventListener('click', e => {
+        const btnSetIDB = document.getElementById('set-idb');
+        const inputSetIDB = document.getElementById('set-idb-input');
+        btnSetIDB.addEventListener('click', e => {
           e.preventDefault();
-          const text = inputSetCookie.value;
+          const text = inputSetIDB.value;
           if(text.length > 0) {
-            Cookies.set('letswrite-cookie', text, { expires: 1 });
+            set('letswrite-idb', text);
           } else {
-            window.alert('請填寫要存在 Cookie 裡的文字再按儲存喔！')
+            window.alert('請填寫要存在 IDB 裡的文字再按儲存喔！')
           }
         })
 
         // 取
-        const btnGetCookie = document.getElementById('get-cookie');
-        const inputGetCookie = document.getElementById('get-cookie-input');
-        btnGetCookie.addEventListener('click', e => {
+        const btnGetIDB = document.getElementById('get-idb');
+        const inputGetIDB = document.getElementById('get-idb-input');
+        btnGetIDB.addEventListener('click', async (e) => {
           e.preventDefault();
-          const text = Cookies.get('letswrite-cookie') || false;
+          const text = await get('letswrite-idb') || false;
           if(text) {
-            inputGetCookie.value = text;
+            inputGetIDB.value = text;
           } else {
-            inputGetCookie.value = '你一開始就沒有存 Cookie 啊，別玩了'
+            inputGetIDB.value = '你一開始就沒有存 IDB 啊，別玩了'
           }
         });
 
         // 刪
-        const btnRemoveCookie = document.getElementById('remove-cookie');
-        btnRemoveCookie.addEventListener('click', e => {
+        const btnRemoveIDB = document.getElementById('remove-idb');
+        btnRemoveIDB.addEventListener('click', e => {
           e.preventDefault();
-          const text = Cookies.get('letswrite-cookie') || false;
-          if(text) {
-            Cookies.remove('letswrite-cookie');
-          } else {
-            window.alert('你沒有存 Cookie 啊，要刪什麼？')
-          }
+          clear();
         });
-
         
       })
