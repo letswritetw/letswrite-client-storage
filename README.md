@@ -6,3 +6,4 @@ Demo：[demo](https://letswritetw.github.io/letswrite-client-storage/)
 
 - [Cookie](https://www.letswrite.tw/client-storage-cookie/)
 - [sessionStorage、localStorage](https://www.letswrite.tw/client-storage-local/)
+- [IndexedDB](https://www.letswrite.tw/client-storage-idb/)
